@@ -24,7 +24,7 @@
     {
       "type": "file",
       "source": "../scripts/update.sh",
-      "destination": "/root/setup.sh"
+      "destination": "/root/update.sh"
     },
     {
       "type": "shell",
