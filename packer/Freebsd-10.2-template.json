@@ -1,0 +1,49 @@
+{
+  "builders": [
+    {
+      "type": "virtualbox-iso",
+      "boot_command": [],
+      "boot_wait": "30s",
+      "disk_size": 20480,
+      "guest_os_type": "FreeBSD_64",
+      "guest_additions_mode": "disable",
+      "iso_checksum": "5f2a4a83c6a75d493fd877f0f15811f85c566c87f4e86c9087935efa43f2019f",
+      "iso_checksum_type": "sha256",
+      "iso_url": "http://mfsbsd.vx.sk/files/iso/10/amd64/mfsbsd-se-10.2-RELEASE-amd64.iso",
+      "shutdown_command": "poweroff; poweroff",
+      "ssh_password": "mfsroot",
+      "ssh_username": "root",
+      "ssh_wait_timeout": "120s",
+      "virtualbox_version_file": ".vbox_version",
+      "vboxmanage": [
+        ["modifyvm", "{{.Name}}", "--memory", "1024"]
+      ]
+    }
+  ],
+  "provisioners": [
+    {
+      "type": "file",
+      "source": "../scripts/update.sh",
+      "destination": "/root/setup.sh"
+    },
+    {
+      "type": "shell",
+      "script": "../scripts/zfsinstall.sh",
+      "execute_command": "chmod +x {{ .Path }}; env {{ .Vars }} {{ .Path }}"
+    }
+  ],
+  "post-processors": [
+    [
+      {
+        "output": "../builds/freebsd-10.2-{{.Provider}}.box",
+        "type": "vagrant",
+        "keep_input_artifact": false,
+        "override": {
+          "virtualbox": {
+            "vagrantfile_template": "../Vagrantfile.virtualbox"
+          }
+        }
+      }
+    ]
+  ]
+}
