@@ -4,11 +4,11 @@
 INSTALLED_PACKAGES="virtualbox-ose-additions bash sudo ca_root_nss"
 
 # Configuration files
-HOSTS=""
-MAKE_CONF=""
-LOADER_CONF=""
-RC_CONF=""
-RESOLV_CONF=""
+HOSTS="https://raw.github.com/nctiskr/freebsd-10.2-packer/master/etc/hosts"
+MAKE_CONF="https://raw.github.com/nctiskr/freebsd-10.2-packer/master/etc/make.conf"
+LOADER_CONF="https://raw.github.com/nctiskr/freebsd-10.2-packer/master/boot/loader.conf"
+RC_CONF="https://raw.github.com/nctiskr/freebsd-10.2-packer/master/etc/rc.conf"
+RESOLV_CONF="https://raw.github.com/nctiskr/freebsd-10.2-packer/master/etc/resolv.conf"
 
 # Private key of Vagrant (you probable don't want to change this)
 VAGRANT_PRIVATE_KEY="https://raw.github.com/mitchellh/vagrant/master/keys/vagrant.pub"
