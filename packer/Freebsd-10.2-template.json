@@ -40,7 +40,7 @@
         "keep_input_artifact": false,
         "override": {
           "virtualbox": {
-            "vagrantfile_template": "../Vagrantfile.virtualbox"
+            "vagrantfile_template": "../vagrant/Vagrantfile.virtualbox"
           }
         }
       }

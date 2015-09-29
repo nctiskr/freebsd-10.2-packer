@@ -16,7 +16,7 @@ Vagrant.configure("2") do |config|
 
   # Global VM config
   config.vm.provider :virtualbox do |vb, override|
-    override.vm.box_url = "builds/freebsd-10.2-virtualbox.box"
+    override.vm.box_url = "../builds/freebsd-10.2-virtualbox.box"
     override.vm.box = "freebsd-10.2-virtualbox"
 
     vb.gui = $vm_gui
